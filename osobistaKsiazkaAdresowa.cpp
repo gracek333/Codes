@@ -327,10 +327,12 @@ int usunAdresata (vector <Adresat> &adresaci, int idOstatniegoAdresata, int idZa
         wybor = wczytajZnak();
 
         if (wybor == 't') {
-            adresaci.erase(adresaci.begin() + indeksAdresata, adresaci.begin() + indeksAdresata + 1);
-            cout << "Usunieto!" << endl << endl;
-            idOstatniegoAdresata = adresaci[adresaci.size() - 1].id;
+
             zapiszZmianyDoPlikuAdresaci(adresaci, idZalogowanegoUzytkownika, indeksAdresata, znacznikUsuwaniaAdresata);
+            adresaci.erase(adresaci.begin() + indeksAdresata, adresaci.begin() + indeksAdresata + 1);
+            idOstatniegoAdresata = adresaci[adresaci.size() - 1].id;
+            cout << "Usunieto!" << endl << endl;
+
         }
     }
     system("pause");
